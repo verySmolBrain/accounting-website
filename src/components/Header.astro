@@ -7,7 +7,7 @@ import AccessibleContentAnchor from "@components/AccessibleContentAnchor.astro";
 import Hr from "@components/Hr.astro";
 
 export interface Props {
-  activeNav?: "services" | "about" | "contact";
+  activeNav?: "about";
 }
 const { activeNav } = Astro.props;
 ---
@@ -42,21 +42,8 @@ const { activeNav } = Astro.props;
         </button>
         <ul id="menu-items" class="nav-menu-items" data-expanded="true">
           <li>
-            <a
-              href="/services/"
-              class={activeNav === "services" ? "active" : ""}
-            >
-              Services
-            </a>
-          </li>
-          <li>
             <a href="/about/" class={activeNav === "about" ? "active" : ""}>
               About
-            </a>
-          </li>
-          <li>
-            <a href="/contact/" class={activeNav === "contact" ? "active" : ""}>
-              Contact
             </a>
           </li>
           <li>
@@ -131,7 +118,7 @@ const { activeNav } = Astro.props;
   }
 
   nav ul {
-    @apply grid grid-cols-2 grid-rows-3 sm:flex;
+    @apply grid grid-cols-2 grid-rows-1 sm:flex;
     @apply w-44 gap-x-2 gap-y-2 sm:w-auto sm:gap-x-5 sm:gap-y-0;
     @apply mt-4 sm:mt-0;
   }

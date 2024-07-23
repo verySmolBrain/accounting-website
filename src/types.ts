@@ -16,3 +16,9 @@ export type SocialObjects = {
   active: boolean;
   linkTitle: string;
 }[];
+
+export type ContactDetails = {
+  email: string;
+  phone: string;
+  fax: string;
+};

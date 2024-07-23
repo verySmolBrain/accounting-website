@@ -13,6 +13,9 @@ export default {
   theme: {
     // Adjust Breakpoints
     screens: {
+      xsss: "320px",
+      xss: "500px",
+      xs: "600px",
       sm: "750px",
       md: "768px",
       lg: "1024px",

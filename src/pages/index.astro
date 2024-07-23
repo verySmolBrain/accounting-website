@@ -3,12 +3,20 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import ServicesBanner from "@components/ServicesBanner.astro";
+import Carousel from "@components/ReactComponents/Carousel";
+import { SITE } from "@config";
+
+const OPTIONS = { loop: true };
+const SLIDES = await Astro.glob("/src/assets/Images/*").then(files => {
+  return files.map(file => file.default.src);
+});
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title=`${SITE.title}`>
   <Header />
   <main id="main-content">
     <section id="hero">
+      <Carousel client:load slides={SLIDES} options={OPTIONS} />
       <h1>Welcome to Lorem Ipsum Accountants</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget posuere
@@ -20,6 +28,9 @@ import ServicesBanner from "@components/ServicesBanner.astro";
 
     <section id="services-information">
       <h2>Services We Provide</h2>
+
+      <hr id="fancy-break" />
+
       <div id="services-types-of-services">
         <ServicesBanner
           serviceName="Accounting"
@@ -66,13 +77,18 @@ import ServicesBanner from "@components/ServicesBanner.astro";
     @apply text-center;
   }
 
+  #fancy-break {
+    @apply mx-auto mb-4 w-[200px] border-2;
+    @apply border-skin-accent;
+  }
+
   #hero {
     @apply flex flex-col items-center pb-6 pt-8;
   }
 
   #hero h1 {
     @apply inline-block;
-    @apply my-2 text-3xl font-bold sm:my-4 sm:text-5xl;
+    @apply my-2 pt-2 text-3xl font-bold sm:my-4 sm:text-5xl;
   }
 
   #services-information {

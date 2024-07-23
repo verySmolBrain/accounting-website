@@ -1,6 +1,7 @@
 ---
 import Hr from "@components/Hr.astro";
 import Socials from "@assets/Icons/Socials.astro";
+import { CONTACT_DETAILS } from "@config";
 
 export interface Props {
   noMarginTop?: boolean;
@@ -29,9 +30,15 @@ const { noMarginTop = false } = Astro.props;
           <p>Paramatta, NSW 2150</p>
         </div>
         <div id="footer-contact-information-detailed">
-          <p>E: inbox@email</p>
-          <p>P: 0400000000</p>
-          <p>F: 0400000000</p>
+          <a href=`mailto:${CONTACT_DETAILS.email}`
+            ><p>E: {CONTACT_DETAILS.email}</p></a
+          >
+          <a href=`tel:${CONTACT_DETAILS.phone}`
+            ><p>P: {CONTACT_DETAILS.phone}</p></a
+          >
+          <a href=`fax:${CONTACT_DETAILS.fax}`
+            ><p>F: {CONTACT_DETAILS.fax}</p></a
+          >
         </div>
       </div>
     </div>
@@ -44,27 +51,31 @@ const { noMarginTop = false } = Astro.props;
 <style>
   #footer-content {
     @apply flex flex-col items-center justify-between sm:flex-row sm:items-start;
-    @apply py-8 sm:py-6;
+    @apply py-6;
   }
 
   #footer-contact-us {
-    @apply flex flex-col pb-4 sm:items-start;
+    @apply flex w-full flex-col pb-4 sm:w-fit sm:items-start;
 
     h2 {
-      @apply pb-4 text-center text-2xl font-semibold sm:pb-0 sm:text-lg;
+      @apply pb-4 text-center text-2xl font-semibold sm:pb-2 sm:text-lg;
     }
   }
 
   #footer-contact-information {
-    @apply flex flex-col gap-8 sm:flex-row;
+    @apply grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:gap-8;
   }
 
   #footer-contact-information-detailed {
     @apply flex flex-col gap-1;
+
+    a {
+      @apply hover:underline;
+    }
   }
 
   footer {
-    @apply mx-auto w-full max-w-4xl px-4 pb-4;
+    @apply mx-auto w-full max-w-4xl px-4 sm:pb-4;
   }
 
   .footer-wrapper {

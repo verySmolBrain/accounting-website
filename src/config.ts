@@ -1,9 +1,9 @@
-import type { Site, SocialObjects } from "./types";
+import type { ContactDetails, Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://example.com",
 
-  title: "Accounting",
+  title: "Accounting Firm Name",
   desc: "Accounting Website",
   author: "Brian Huang",
 
@@ -48,3 +48,9 @@ export const SOCIALS: SocialObjects = [
     active: true,
   },
 ];
+
+export const CONTACT_DETAILS: ContactDetails = {
+  email: "yourmail@gmail.com",
+  phone: "123456789",
+  fax: "123456789",
+};

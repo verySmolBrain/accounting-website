@@ -8,30 +8,40 @@ import Layout from "@layouts/Layout.astro";
 <Layout title=`About | ${SITE.title}`>
   <Header activeNav="about" />
   <main id="main-content">
-    <section id="hero">
+    <section id="about">
       <h1>About Our Accountants</h1>
+      <hr id="fancy-break" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget posuere
+        turpis. Integer molestie dapibus aliquam. Nulla a purus vestibulum,
+        suscipit massa at, lobortis lorem. Aliquam tempor vulputate tortor sed
+        tempus. Morbi gravida tristique porta. Curabitur scelerisque luctus
+        turpis vel fringilla. Ut et hendrerit mi, sed venenatis leo. Nunc
+        lobortis lobortis sollicitudin.
+      </p>
+      <p>
+        Nulla blandit laoreet neque, ut pharetra quam sollicitudin sed. Vivamus
+        maximus pretium sapien, ut ornare nisl commodo vel. Aliquam mattis
+        molestie tellus cursus facilisis. Nullam sagittis laoreet sagittis.
+        Aenean sed tristique neque, eget auctor elit.
+      </p>
+      <p>
+        Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+        inceptos himenaeos. Cras at massa vehicula, iaculis lacus at, venenatis
+        quam. Sed feugiat massa sit amet turpis consequat, eu dapibus neque
+        vestibulum.
+      </p>
     </section>
 
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget posuere
-      turpis. Integer molestie dapibus aliquam. Nulla a purus vestibulum,
-      suscipit massa at, lobortis lorem. Aliquam tempor vulputate tortor sed
-      tempus. Morbi gravida tristique porta. Curabitur scelerisque luctus turpis
-      vel fringilla. Ut et hendrerit mi, sed venenatis leo. Nunc lobortis
-      lobortis sollicitudin.
-    </p>
-    <p>
-      Nulla blandit laoreet neque, ut pharetra quam sollicitudin sed. Vivamus
-      maximus pretium sapien, ut ornare nisl commodo vel. Aliquam mattis
-      molestie tellus cursus facilisis. Nullam sagittis laoreet sagittis. Aenean
-      sed tristique neque, eget auctor elit.
-    </p>
-    <p>
-      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-      inceptos himenaeos. Cras at massa vehicula, iaculis lacus at, venenatis
-      quam. Sed feugiat massa sit amet turpis consequat, eu dapibus neque
-      vestibulum.
-    </p>
+    <section id="about-us-google-maps">
+      <h2>Google Maps</h2>
+      <iframe
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?width=100%&height=600&hl=en&coord=52.70967533219885, -8.020019531250002&q=1%20Grafton%20Street%2C%20Dublin%2C%20Ireland&ie=UTF8&t=&z=14&iwloc=B&output=embed"
+      ></iframe>
+    </section>
   </main>
 
   <Footer />
@@ -40,10 +50,11 @@ import Layout from "@layouts/Layout.astro";
 <style>
   #main-content {
     @apply mx-auto max-w-4xl px-4;
+  }
 
-    p {
-      @apply mb-4;
-    }
+  #fancy-break {
+    @apply mb-4 w-[200px] items-start border-2;
+    @apply border-skin-accent;
   }
 
   section {
@@ -51,12 +62,26 @@ import Layout from "@layouts/Layout.astro";
     @apply text-center;
   }
 
-  #hero {
-    @apply flex flex-col items-center pb-6 pt-8;
+  #about {
+    @apply ml-auto flex flex-col pt-8;
+
+    h1 {
+      @apply inline-block;
+      @apply my-4 text-3xl font-bold sm:my-2;
+    }
+
+    p {
+      @apply text-left;
+      @apply pb-4;
+    }
   }
 
-  #hero h1 {
-    @apply inline-block;
-    @apply my-2 text-3xl font-bold sm:my-4;
+  #about-us-google-maps {
+    @apply flex flex-col gap-4;
+    @apply pb-4 text-left text-xl font-semibold;
+
+    iframe {
+      @apply min-h-[400px];
+    }
   }
 </style>
