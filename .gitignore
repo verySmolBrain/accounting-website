@@ -4,6 +4,8 @@ dist/
 # generated types
 .astro/
 
+.jampack
+
 # dependencies
 node_modules/
 

@@ -48,12 +48,20 @@ export default {
           line: withOpacity("--color-border"),
           fill: withOpacity("--color-text-base"),
           accent: withOpacity("--color-accent"),
+
+          "line-variant-one": withOpacity("--color-accent-one"),
+          "line-variant-two": withOpacity("--color-accent-two"),
+          "line-variant-three": withOpacity("--color-accent-three"),
         },
       },
       fill: {
         skin: {
           base: withOpacity("--color-text-base"),
           accent: withOpacity("--color-accent"),
+
+          "line-variant-one": withOpacity("--color-accent-one"),
+          "line-variant-two": withOpacity("--color-accent-two"),
+          "line-variant-three": withOpacity("--color-accent-three"),
         },
         transparent: "transparent",
       },

@@ -14,11 +14,31 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
 
 <div id="service-banner">
   <div id="service-banner-icon">
-    {serviceIcon === "taxation" && <TaxationIcon height="48" width="48" />}
-    {serviceIcon === "accounting" && <AccountingIcon height="48" width="48" />}
+    {
+      serviceIcon === "taxation" && (
+        <TaxationIcon
+          height="48"
+          width="48"
+          class="fill-skin-line-variant-two"
+        />
+      )
+    }
+    {
+      serviceIcon === "accounting" && (
+        <AccountingIcon
+          height="48"
+          width="48"
+          class="fill-skin-line-variant-one"
+        />
+      )
+    }
     {
       serviceIcon === "financial-planning" && (
-        <FinancialPlanningIcon height="48" width="48" />
+        <FinancialPlanningIcon
+          height="48"
+          width="48"
+          class="fill-skin-line-variant-three"
+        />
       )
     }
   </div>
@@ -26,7 +46,13 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
   <h3>{serviceName}</h3>
 
   <div id="services-break-line">
-    <hr />
+    <hr
+      class={serviceIcon === "taxation"
+        ? "border-skin-line-variant-two"
+        : serviceIcon === "accounting"
+          ? "border-skin-line-variant-one"
+          : "border-skin-line-variant-three"}
+    />
   </div>
 
   <ul>
@@ -48,7 +74,7 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
     @apply py-4;
 
     hr {
-      @apply border-2 border-skin-line;
+      @apply border-2;
     }
   }
 
