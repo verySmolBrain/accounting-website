@@ -1,15 +1,28 @@
 ---
+import AccountingIcon from "@assets/Icons/AccountingIcon.astro";
+import FinancialPlanningIcon from "@assets/Icons/FinancialPlanningIcon.astro";
+import TaxationIcon from "@assets/Icons/TaxationIcon.astro";
+
 export interface Props {
   serviceName: string;
-  serviceIcon?: string;
+  serviceIcon: "taxation" | "accounting" | "financial-planning";
   serviceDescriptionDotpoints: string[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
 ---
 
-<div>
+<div id="service-banner">
+  <div id="service-banner-icon">
+    {serviceIcon === "taxation" && <TaxationIcon height="48" width="48" />}
+    {serviceIcon === "accounting" && <AccountingIcon height="48" width="48" />}
+    {
+      serviceIcon === "financial-planning" && (
+        <FinancialPlanningIcon height="48" width="48" />
+      )
+    }
+  </div>
+
   <h3>{serviceName}</h3>
 
   <div id="services-break-line">
@@ -22,8 +35,16 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
 </div>
 
 <style>
+  #service-banner {
+    @apply flex flex-col;
+  }
+
+  #service-banner-icon {
+    @apply flex flex-row justify-center pb-2;
+  }
+
   #services-break-line {
-    @apply mx-auto max-w-sm;
+    @apply w-auto;
     @apply py-4;
 
     hr {
@@ -32,11 +53,11 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
   }
 
   ul {
-    @apply list-inside list-disc;
+    @apply ms-8 list-outside list-disc;
   }
 
   li {
-    @apply mb-2;
+    @apply mb-2 text-left;
   }
 
   h3 {

@@ -6,7 +6,57 @@ import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title=`About | ${SITE.title}`>
-  <Header />
+  <Header activeNav="about" />
+  <main id="main-content">
+    <section id="hero">
+      <h1>About Our Accountants</h1>
+    </section>
+
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget posuere
+      turpis. Integer molestie dapibus aliquam. Nulla a purus vestibulum,
+      suscipit massa at, lobortis lorem. Aliquam tempor vulputate tortor sed
+      tempus. Morbi gravida tristique porta. Curabitur scelerisque luctus turpis
+      vel fringilla. Ut et hendrerit mi, sed venenatis leo. Nunc lobortis
+      lobortis sollicitudin.
+    </p>
+    <p>
+      Nulla blandit laoreet neque, ut pharetra quam sollicitudin sed. Vivamus
+      maximus pretium sapien, ut ornare nisl commodo vel. Aliquam mattis
+      molestie tellus cursus facilisis. Nullam sagittis laoreet sagittis. Aenean
+      sed tristique neque, eget auctor elit.
+    </p>
+    <p>
+      Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+      inceptos himenaeos. Cras at massa vehicula, iaculis lacus at, venenatis
+      quam. Sed feugiat massa sit amet turpis consequat, eu dapibus neque
+      vestibulum.
+    </p>
+  </main>
 
   <Footer />
 </Layout>
+
+<style>
+  #main-content {
+    @apply mx-auto max-w-4xl px-4;
+
+    p {
+      @apply mb-4;
+    }
+  }
+
+  section {
+    @apply px-4;
+    @apply text-center;
+  }
+
+  #hero {
+    @apply flex flex-col items-center pb-6 pt-8;
+  }
+
+  #hero h1 {
+    @apply inline-block;
+    @apply my-2 text-3xl font-bold sm:my-4;
+  }
+</style>

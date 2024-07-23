@@ -31,7 +31,7 @@ const { noMarginTop = false } = Astro.props;
         <div id="footer-contact-information-detailed">
           <p>E: inbox@email</p>
           <p>P: 0400000000</p>
-          <p>P: 0400000000</p>
+          <p>F: 0400000000</p>
         </div>
       </div>
     </div>
@@ -44,19 +44,19 @@ const { noMarginTop = false } = Astro.props;
 <style>
   #footer-content {
     @apply flex flex-col items-center justify-between sm:flex-row sm:items-start;
-    @apply py-6 sm:py-4;
+    @apply py-8 sm:py-6;
   }
 
   #footer-contact-us {
     @apply flex flex-col pb-4 sm:items-start;
 
     h2 {
-      @apply pb-4 text-2xl font-semibold sm:pb-0 sm:text-lg;
+      @apply pb-4 text-center text-2xl font-semibold sm:pb-0 sm:text-lg;
     }
   }
 
   #footer-contact-information {
-    @apply flex flex-col gap-8 pt-2 sm:flex-row;
+    @apply flex flex-col gap-8 sm:flex-row;
   }
 
   #footer-contact-information-detailed {
@@ -68,6 +68,6 @@ const { noMarginTop = false } = Astro.props;
   }
 
   .footer-wrapper {
-    @apply flex flex-col items-center justify-between pt-4;
+    @apply flex flex-col items-center justify-between;
   }
 </style>
