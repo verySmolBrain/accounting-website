@@ -1,0 +1,52 @@
+{
+  "name": "person-website",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build && jampack ./dist",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "npm run lint:eslint && npm run lint:stylelint",
+    "lint:eslint": "eslint .",
+    "lint:stylelint": "stylelint 'src/**/*.{css,astro,tsx}'",
+    "prepare": "husky && husky install"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/react": "^3.6.0",
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/ts-plugin": "^1.8.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.11.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@divriots/jampack": "^0.24.4",
+    "@eslint/js": "^9.6.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/eslint__js": "^8.42.3",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^9.6.0",
+    "eslint-plugin-astro": "^1.2.2",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
+    "postcss-html": "^1.7.0",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "prettier-plugin-tailwindcss": "^0.6.5",
+    "stylelint": "^16.6.1",
+    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript-eslint": "^7.15.0"
+  }
+}

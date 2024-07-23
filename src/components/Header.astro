@@ -1,0 +1,190 @@
+---
+import { LOGO_IMAGE, SITE } from "@config";
+import BurgerMenuIcon from "@assets/Icons/BurgerMenuIcon.astro";
+import SunIcon from "@assets/Icons/SunIcon.astro";
+import MoonIcon from "@assets/Icons/MoonIcon.astro";
+import AccessibleContentAnchor from "@components/AccessibleContentAnchor.astro";
+import Hr from "@components/Hr.astro";
+
+export interface Props {
+  activeNav?: "services" | "about" | "contact";
+}
+const { activeNav } = Astro.props;
+---
+
+<header>
+  <AccessibleContentAnchor />
+
+  <div class="nav-container">
+    <div class="top-nav-wrap">
+      <a href="/" class="logo">
+        {
+          LOGO_IMAGE.enable ? (
+            <img
+              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+              alt={SITE.title}
+              width={LOGO_IMAGE.width}
+              height={LOGO_IMAGE.height}
+            />
+          ) : (
+            SITE.title
+          )
+        }
+      </a>
+      <nav id="nav-menu">
+        <button
+          class="hamburger-menu"
+          aria-label="Open Menu"
+          aria-expanded="false"
+          aria-controls="menu-items"
+        >
+          <BurgerMenuIcon />
+        </button>
+        <ul id="menu-items" class="nav-menu-items" data-expanded="true">
+          <li>
+            <a
+              href="/services/"
+              class={activeNav === "services" ? "active" : ""}
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="/about/" class={activeNav === "about" ? "active" : ""}>
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/contact/" class={activeNav === "contact" ? "active" : ""}>
+              Contact
+            </a>
+          </li>
+          <li>
+            <button
+              id="theme-btn"
+              title="Toggles Light & Dark Mode"
+              aria-label="auto"
+              aria-live="polite"
+            >
+              <MoonIcon id="moon-svg" />
+              <SunIcon id="sun-svg" />
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <Hr />
+</header>
+
+<style>
+  html[data-theme="dark"] #sun-svg {
+    @apply hidden;
+  }
+
+  html[data-theme="light"] #moon-svg {
+    @apply hidden;
+  }
+
+  #theme-btn {
+    @apply hover:rotate-12;
+  }
+
+  svg {
+    @apply inline-block h-6 w-6;
+    @apply scale-125 sm:scale-100;
+    @apply fill-skin-base hover:fill-skin-accent;
+  }
+
+  .nav-container {
+    @apply mx-auto max-w-4xl;
+    @apply items-center justify-between;
+    @apply flex flex-col sm:flex-row;
+  }
+
+  .top-nav-wrap {
+    @apply relative w-full;
+    @apply p-4 sm:py-8;
+    @apply flex items-start justify-between sm:items-center;
+  }
+
+  .logo {
+    @apply absolute sm:static;
+    @apply py-1;
+    @apply whitespace-nowrap text-xl font-semibold sm:text-2xl;
+  }
+
+  .hamburger-menu {
+    @apply self-end;
+    @apply sm:hidden;
+  }
+
+  .hamburger-menu svg {
+    @apply h-6 w-6 scale-125;
+    @apply fill-skin-base;
+  }
+
+  nav {
+    @apply w-full sm:space-x-4;
+    @apply sm:ml-2;
+    @apply flex flex-col items-center sm:flex-row sm:justify-end;
+  }
+
+  nav ul {
+    @apply grid grid-cols-2 grid-rows-3 sm:flex;
+    @apply w-44 gap-x-2 gap-y-2 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply mt-4 sm:mt-0;
+  }
+
+  nav ul[data-expanded="true"] {
+    @apply hidden sm:flex;
+  }
+
+  nav ul li {
+    @apply col-span-2 flex items-center justify-center;
+  }
+
+  nav ul li a {
+    @apply w-full text-center;
+    @apply px-4 py-3 sm:my-0 sm:px-2 sm:py-1;
+    @apply font-medium hover:text-skin-accent;
+  }
+
+  nav a.active {
+    @apply underline decoration-wavy decoration-2 underline-offset-4;
+  }
+
+  nav a.active svg {
+    @apply fill-skin-accent;
+  }
+</style>
+
+<script>
+  function toggleNav() {
+    // Toggle menu
+    const menuBtn = document.querySelector(".hamburger-menu");
+    const menuIcon = document.querySelector(".menu-icon");
+    const menuItems = document.querySelector("#menu-items");
+
+    menuBtn?.addEventListener("click", () => {
+      const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuIcon?.classList.toggle("is-active");
+      menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+      menuBtn.setAttribute(
+        "aria-label",
+        menuExpanded ? "Open Menu" : "Close Menu"
+      );
+
+      if (menuExpanded) {
+        menuItems?.setAttribute("data-expanded", "true");
+      } else {
+        menuItems?.setAttribute("data-expanded", "false");
+      }
+    });
+  }
+
+  toggleNav();
+
+  // Runs on view transitions navigation
+  document.addEventListener("astro:after-swap", toggleNav);
+</script>

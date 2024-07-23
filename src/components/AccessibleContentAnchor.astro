@@ -1,0 +1,18 @@
+---
+export default interface Props {
+  linkTo: string;
+}
+
+const { linkTo = "#main-content" } = Astro.props;
+---
+
+<a id="skip-to-content" href={linkTo}>Skip to Content</a>
+
+<style>
+  #skip-to-content {
+    @apply absolute -top-full left-16 z-50 px-3 py-2;
+    @apply bg-skin-accent text-skin-inverted;
+    @apply outline-2 outline-offset-1 outline-skin-fill;
+    @apply transition-all focus:top-4 focus-visible:no-underline focus-visible:outline-dashed;
+  }
+</style>

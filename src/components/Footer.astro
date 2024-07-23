@@ -1,0 +1,73 @@
+---
+import Hr from "@components/Hr.astro";
+import Socials from "@assets/Icons/Socials.astro";
+
+export interface Props {
+  noMarginTop?: boolean;
+}
+
+const { noMarginTop = false } = Astro.props;
+---
+
+<footer class={`${noMarginTop ? "" : "mt-auto"}`}>
+  <Hr noPadding />
+
+  <div id="footer-content">
+    <div id="footer-contact-us">
+      <h2>Contact Us</h2>
+      <div id="footer-contact-information">
+        <div id="footer-contact-information-detailed">
+          <p>Office Address:</p>
+          <p>Suite 1 Level 3</p>
+          <p>96 Phillip Street</p>
+          <p>Paramatta, NSW 2150</p>
+        </div>
+        <div id="footer-contact-information-detailed">
+          <p>Postal Address:</p>
+          <p>Suite 1 Level 3</p>
+          <p>96 Phillip Street</p>
+          <p>Paramatta, NSW 2150</p>
+        </div>
+        <div id="footer-contact-information-detailed">
+          <p>E: inbox@email</p>
+          <p>P: 0400000000</p>
+          <p>P: 0400000000</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-wrapper">
+      <Socials centered />
+    </div>
+  </div>
+</footer>
+
+<style>
+  #footer-content {
+    @apply flex flex-col items-center justify-between sm:flex-row sm:items-start;
+    @apply py-6 sm:py-4;
+  }
+
+  #footer-contact-us {
+    @apply flex flex-col pb-4 sm:items-start;
+
+    h2 {
+      @apply pb-4 text-2xl font-semibold sm:pb-0 sm:text-lg;
+    }
+  }
+
+  #footer-contact-information {
+    @apply flex flex-col gap-8 pt-2 sm:flex-row;
+  }
+
+  #footer-contact-information-detailed {
+    @apply flex flex-col gap-1;
+  }
+
+  footer {
+    @apply mx-auto w-full max-w-4xl px-4 pb-4;
+  }
+
+  .footer-wrapper {
+    @apply flex flex-col items-center justify-between pt-4;
+  }
+</style>

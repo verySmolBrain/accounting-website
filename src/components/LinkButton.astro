@@ -1,0 +1,36 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends HTMLAttributes<"a">, HTMLAttributes<"span"> {
+  disabled?: boolean;
+  ariaLabel?: string;
+}
+
+const { href, ariaLabel, title, id, disabled = false, ...attrs } = Astro.props;
+---
+
+{
+  disabled ? (
+    <span
+      class:list={[attrs.class, "group inline-block"]}
+      aria-label={ariaLabel}
+      title={title}
+      aria-disabled={disabled}
+      {...attrs}
+    >
+      <slot />
+    </span>
+  ) : (
+    <a
+      {href}
+      class:list={[attrs.class, "group inline-block hover:text-skin-accent"]}
+      aria-label={ariaLabel}
+      title={title}
+      id={id}
+      data-social-link="true"
+      {...attrs}
+    >
+      <slot />
+    </a>
+  )
+}

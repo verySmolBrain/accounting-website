@@ -1,0 +1,18 @@
+# Ignore everything
+/*
+
+# Except these files & folders
+!/src
+!/public
+!/.github
+!tsconfig.json
+!astro.config.ts
+!package.json
+!.prettierrc
+!.eslintrc.js
+!eslint.config.mjs
+!.lintstagedrc
+!.stylelintrc
+!tailwind.config.mjs
+!astro.config.mjs
+!README.md

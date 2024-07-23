@@ -1,0 +1,45 @@
+---
+export interface Props {
+  serviceName: string;
+  serviceIcon?: string;
+  serviceDescriptionDotpoints: string[];
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
+---
+
+<div>
+  <h3>{serviceName}</h3>
+
+  <div id="services-break-line">
+    <hr />
+  </div>
+
+  <ul>
+    {serviceDescriptionDotpoints.map(dotpoint => <li>{dotpoint}</li>)}
+  </ul>
+</div>
+
+<style>
+  #services-break-line {
+    @apply mx-auto max-w-sm;
+    @apply py-4;
+
+    hr {
+      @apply border-2 border-skin-line;
+    }
+  }
+
+  ul {
+    @apply list-inside list-disc;
+  }
+
+  li {
+    @apply mb-2;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+</style>

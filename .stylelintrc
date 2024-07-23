@@ -1,0 +1,6 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-html"],
+  "rules": {
+    "at-rule-no-unknown": null
+  }
+}
