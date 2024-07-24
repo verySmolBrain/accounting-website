@@ -10,9 +10,15 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: "https://accounting-website-9j6.pages.dev/",
-  integrations: [tailwind({
-    applyBaseStyles: false
-  }), react(), sitemap(), compress(), robotsTxt()],
+  integrations: [
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    react(),
+    sitemap(),
+    compress(),
+    robotsTxt(),
+  ],
   output: "server",
-  adapter: cloudflare()
+  adapter: cloudflare({ imageService: "compile" }),
 });
