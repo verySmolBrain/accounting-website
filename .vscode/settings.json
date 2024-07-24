@@ -10,5 +10,6 @@
   "stylelint.validate": ["html", "astro", "react"],
   "files.associations": {
     "*.css": "tailwindcss"
-  }
+  },
+  "css.customData": [".vscode/tailwind.json"]
 }

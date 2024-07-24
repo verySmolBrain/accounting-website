@@ -46,7 +46,7 @@ const Carousel: React.FC<Props> = ({ slides, options }) => {
 
   return (
     <div className="flex w-screen flex-row items-center justify-center">
-      <div className="relative left-14 z-10 flex items-center">
+      <div className="absolute left-5 z-10 flex items-center sm:relative sm:left-14">
         <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
       </div>
       <div className="w-full max-w-4xl">
@@ -63,7 +63,7 @@ const Carousel: React.FC<Props> = ({ slides, options }) => {
           </div>
         </div>
       </div>
-      <div className="relative right-14 z-10 flex items-center">
+      <div className="absolute right-5 z-10 flex items-center sm:relative sm:right-14">
         <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
       </div>
     </div>
