@@ -20,5 +20,5 @@ export default defineConfig({
     robotsTxt(),
   ],
   output: "server",
-  adapter: cloudflare({ imageService: "compile" }),
+  adapter: cloudflare(),
 });

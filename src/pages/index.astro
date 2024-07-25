@@ -17,7 +17,10 @@ const SLIDES = await Astro.glob("/src/assets/Images/*").then(files => {
   <main id="main-content">
     <section id="hero">
       <Carousel client:load slides={SLIDES} options={OPTIONS} />
-      <h1>Welcome to Lorem Ipsum Accountants</h1>
+      <h1>
+        Welcome to <span>Weichen (Willis) Wang</span> Chartered Accountants
+      </h1>
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget posuere
         turpis. Integer molestie dapibus aliquam. Nulla a purus vestibulum,
@@ -88,7 +91,11 @@ const SLIDES = await Astro.glob("/src/assets/Images/*").then(files => {
 
   #hero h1 {
     @apply inline-block;
-    @apply my-2 pt-2 text-3xl font-bold sm:my-4 sm:text-5xl;
+    @apply my-2 pt-2 text-3xl font-bold tracking-tight sm:my-4 sm:text-5xl;
+
+    span {
+      @apply text-skin-accent underline underline-offset-2;
+    }
   }
 
   #services-information {

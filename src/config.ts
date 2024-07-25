@@ -3,8 +3,8 @@ import type { ContactDetails, Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://example.com",
 
-  title: "Accounting Firm Name",
-  desc: "Accounting Website",
+  title: "Weichen (Willis) Wang, CA",
+  desc: "Chartered Accountant",
   author: "Brian Huang",
 
   ogImage: "",
@@ -37,20 +37,20 @@ export const SOCIALS: SocialObjects = [
   },
   {
     name: "Mail",
-    href: "mailto:yourmail@gmail.com",
+    href: "mailto:weichenwong@hotmail.com",
     linkTitle: `Send an email to ${SITE.title}`,
     active: true,
   },
   {
     name: "Phone",
-    href: "tel:123456789",
+    href: "tel:0434721796",
     linkTitle: `Call ${SITE.title}`,
     active: true,
   },
 ];
 
 export const CONTACT_DETAILS: ContactDetails = {
-  email: "yourmail@gmail.com",
-  phone: "123456789",
-  fax: "123456789",
+  email: "weichenwong@hotmail.com",
+  phone: "0434721796",
+  abn: "13655186489",
 };

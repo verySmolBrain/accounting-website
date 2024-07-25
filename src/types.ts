@@ -20,5 +20,5 @@ export type SocialObjects = {
 export type ContactDetails = {
   email: string;
   phone: string;
-  fax: string;
+  abn: string;
 };

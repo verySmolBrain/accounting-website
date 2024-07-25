@@ -19,26 +19,19 @@ const { noMarginTop = false } = Astro.props;
       <div id="footer-contact-information">
         <div id="footer-contact-information-detailed">
           <p>Office Address:</p>
-          <p>Suite 1 Level 3</p>
-          <p>96 Phillip Street</p>
-          <p>Paramatta, NSW 2150</p>
-        </div>
-        <div id="footer-contact-information-detailed">
-          <p>Postal Address:</p>
-          <p>Suite 1 Level 3</p>
-          <p>96 Phillip Street</p>
-          <p>Paramatta, NSW 2150</p>
+          <p>15 Atchinson Street</p>
+          <p>St Leonards, NSW 2065</p>
         </div>
         <div id="footer-contact-information-detailed">
           <a href=`mailto:${CONTACT_DETAILS.email}`
-            ><p>E: {CONTACT_DETAILS.email}</p></a
+            ><p>
+              E: {CONTACT_DETAILS.email}
+            </p></a
           >
           <a href=`tel:${CONTACT_DETAILS.phone}`
             ><p>P: {CONTACT_DETAILS.phone}</p></a
           >
-          <a href=`fax:${CONTACT_DETAILS.fax}`
-            ><p>F: {CONTACT_DETAILS.fax}</p></a
-          >
+          <p>ABN: {CONTACT_DETAILS.abn}</p>
         </div>
       </div>
     </div>
@@ -63,7 +56,12 @@ const { noMarginTop = false } = Astro.props;
   }
 
   #footer-contact-information {
-    @apply grid grid-cols-2 gap-4 sm:flex sm:flex-row sm:gap-8;
+    @apply grid grid-cols-2 sm:flex sm:flex-row sm:gap-8;
+    @apply overflow-hidden truncate;
+
+    p {
+      @apply overflow-hidden text-ellipsis;
+    }
   }
 
   #footer-contact-information-detailed {
