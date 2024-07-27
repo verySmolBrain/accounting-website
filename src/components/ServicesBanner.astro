@@ -55,7 +55,14 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
     />
   </div>
 
-  <ul>
+  <ul
+    class={serviceIcon === "taxation"
+      ? "marker:text-skin-accent-variant-two"
+      : serviceIcon === "accounting"
+        ? "marker:text-skin-accent-variant-one"
+        : "marker:text-skin-accent-variant-three"}
+    id="services-dotpoints"
+  >
     {serviceDescriptionDotpoints.map(dotpoint => <li>{dotpoint}</li>)}
   </ul>
 </div>
@@ -67,6 +74,10 @@ const { serviceName, serviceIcon, serviceDescriptionDotpoints } = Astro.props;
 
   #service-banner-icon {
     @apply flex flex-row justify-center pb-2;
+  }
+
+  #services-dotpoints {
+    @apply text-left;
   }
 
   #services-break-line {

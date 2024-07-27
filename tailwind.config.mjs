@@ -27,6 +27,10 @@ export default {
           base: withOpacity("--color-text-base"),
           accent: withOpacity("--color-accent"),
           inverted: withOpacity("--color-fill"),
+
+          "accent-variant-one": withOpacity("--color-accent-one"),
+          "accent-variant-two": withOpacity("--color-accent-two"),
+          "accent-variant-three": withOpacity("--color-accent-three"),
         },
       },
       backgroundColor: {
