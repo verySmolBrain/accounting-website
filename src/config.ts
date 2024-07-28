@@ -3,7 +3,7 @@ import type { ContactDetails, Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://example.com",
 
-  title: "Weichen (Willis) Wang, CA",
+  title: "Y&S Chartered Accountants",
   desc: "Chartered Accountant",
   author: "Brian Huang",
 

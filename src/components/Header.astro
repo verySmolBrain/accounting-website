@@ -17,20 +17,24 @@ const { activeNav } = Astro.props;
 
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo">
-        {
-          LOGO_IMAGE.enable ? (
-            <img
-              src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-              alt={SITE.title}
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          ) : (
-            SITE.title
-          )
-        }
-      </a>
+      <div id="nav-logo">
+        <img src={`/logo.png`} alt={SITE.title} />
+        <a href="/" class="logo">
+          {
+            LOGO_IMAGE.enable ? (
+              <img
+                src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
+                alt={SITE.title}
+                width={LOGO_IMAGE.width}
+                height={LOGO_IMAGE.height}
+              />
+            ) : (
+              SITE.title
+            )
+          }
+        </a>
+      </div>
+
       <nav id="nav-menu">
         <button
           class="hamburger-menu"
@@ -77,6 +81,16 @@ const { activeNav } = Astro.props;
     @apply hover:rotate-12;
   }
 
+  #nav-logo {
+    @apply flex flex-row items-center justify-center gap-2;
+    @apply absolute mx-auto sm:py-1;
+    @apply whitespace-nowrap text-xl font-semibold sm:text-2xl;
+
+    img {
+      @apply h-fit w-[50px] xss:w-[75px] xs:w-[100px];
+    }
+  }
+
   svg {
     @apply inline-block h-6 w-6;
     @apply scale-125 sm:scale-100;
@@ -93,12 +107,6 @@ const { activeNav } = Astro.props;
     @apply relative w-full;
     @apply p-4 sm:py-8;
     @apply flex items-start justify-between sm:items-center;
-  }
-
-  .logo {
-    @apply absolute sm:static;
-    @apply py-1;
-    @apply whitespace-nowrap text-xl font-semibold sm:text-2xl;
   }
 
   .hamburger-menu {
