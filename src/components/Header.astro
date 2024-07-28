@@ -1,5 +1,5 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { SITE } from "@config";
 import BurgerMenuIcon from "@assets/Icons/BurgerMenuIcon.astro";
 import SunIcon from "@assets/Icons/SunIcon.astro";
 import MoonIcon from "@assets/Icons/MoonIcon.astro";
@@ -18,20 +18,11 @@ const { activeNav } = Astro.props;
   <div class="nav-container">
     <div class="top-nav-wrap">
       <div id="nav-logo">
-        <img src={`/logo.png`} alt={SITE.title} />
-        <a href="/" class="logo">
-          {
-            LOGO_IMAGE.enable ? (
-              <img
-                src={`/assets/${LOGO_IMAGE.svg ? "logo.svg" : "logo.png"}`}
-                alt={SITE.title}
-                width={LOGO_IMAGE.width}
-                height={LOGO_IMAGE.height}
-              />
-            ) : (
-              SITE.title
-            )
-          }
+        <a href="/"><img src={`/logo.png`} alt={SITE.title} /></a>
+
+        <a href="/" class="top-nav-company-name">
+          <span>Y&S</span>
+          <span>Chartered Accountants</span>
         </a>
       </div>
 
@@ -83,11 +74,15 @@ const { activeNav } = Astro.props;
 
   #nav-logo {
     @apply flex flex-row items-center justify-center gap-2;
-    @apply absolute mx-auto sm:py-1;
+    @apply mx-auto sm:py-1;
     @apply whitespace-nowrap text-xl font-semibold sm:text-2xl;
 
     img {
-      @apply h-fit w-[50px] xss:w-[75px] xs:w-[100px];
+      @apply h-full min-w-[90px] xs:w-full;
+    }
+
+    .top-nav-company-name {
+      @apply flex flex-col items-center justify-center xs:flex-row xs:gap-4;
     }
   }
 
