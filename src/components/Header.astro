@@ -18,9 +18,8 @@ const { activeNav } = Astro.props;
   <div class="nav-container">
     <div class="top-nav-wrap">
       <div id="nav-logo">
-        <a href="/"><img src={`/logo.png`} alt={SITE.title} /></a>
-
         <a href="/" class="top-nav-company-name">
+          <img src={`/logo.png`} alt={SITE.title} />
           <span>Y&S</span>
           <span>Chartered Accountants</span>
         </a>
@@ -73,16 +72,15 @@ const { activeNav } = Astro.props;
   }
 
   #nav-logo {
-    @apply flex flex-row items-center justify-center gap-2;
-    @apply mx-auto sm:py-1;
+    @apply absolute mx-auto sm:py-1;
     @apply whitespace-nowrap text-xl font-semibold sm:text-2xl;
 
     img {
-      @apply h-full min-w-[90px] xs:w-full;
+      @apply h-fit w-[90px];
     }
 
     .top-nav-company-name {
-      @apply flex flex-col items-center justify-center xs:flex-row xs:gap-4;
+      @apply flex flex-row items-center justify-center gap-1 [word-spacing:-5px] xs:gap-4;
     }
   }
 
