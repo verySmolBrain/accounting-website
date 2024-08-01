@@ -9,7 +9,7 @@ import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://accounting-website-9j6.pages.dev/",
+  site: "https://yw-accountant.com/",
   integrations: [
     tailwind({
       applyBaseStyles: false,

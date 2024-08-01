@@ -1,9 +1,9 @@
 import type { ContactDetails, Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
-  website: "https://example.com",
+  website: "https://yw-accountant.com",
 
-  title: "Y&S Chartered Accountants",
+  title: "Y&W Chartered Accountants",
   desc: "Chartered Accountant",
   author: "Brian Huang",
 
